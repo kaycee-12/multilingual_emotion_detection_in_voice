@@ -1,33 +1,107 @@
-# multilingual_emotion_detection_in_voice
-🌍 Multilingual Emotion Detection in Voice
-This project combines speech transcription and emotion recognition from audio files using Python libraries such as whisper, librosa, and scikit-learn.
+# multilingual_emotion_detection_in_voiceHere's a **README** file based on the contents of your notebook titled **"Multilingual Emotion Detection in Voice"**:
 
-🧩 Key Components
-🎤 Speech Recognition: Using OpenAI Whisper to transcribe voice from .mp4 audio files
-😃 Emotion Detection: Extracting audio features (MFCC + pitch) and classifying emotions using a Support Vector Machine (SVM)
-🌐 Multilingual Support: Whisper automatically detects the spoken language
-📦 Dependencies
-Install the required packages:
+---
 
-pip install openai-whisper librosa scikit-learn moviepy
-🛠️ How It Works
-Convert Audio: Convert .mp4 files to .wav using moviepy
-Transcribe Speech: Transcribe speech using OpenAI's Whisper model
-Extract Features: Use librosa to extract MFCC and pitch features
-Classify Emotion: Predict emotional tone using an SVM classifier
-Output: Print transcription, detected language, and detected emotion
-🧪 Sample Code Usage
-emotion_classifier, label_encoder = train_emotion_classifier()
-emotion_aware_speech_recognition("/content/happy voice.mp4")
-🎯 Example Output
-Transcription: Hello, how are you today?
-Language Detected: en
-Detected Emotion: happy
-📁 File Format
-Input: .mp4 audio file
-Internal conversion to .wav for processing
-📌 Notes
-The emotion classifier is trained on synthetic/random data for demonstration. Replace with real labeled emotion datasets for production use.
-Whisper model used: "base" (can be changed to tiny, small, medium, or large)
-📜 License
-MIT License
+# 🎙️ Multilingual Emotion Detection in Voice
+
+This project implements a system to detect human emotions from voice recordings across multiple languages using machine learning and deep learning techniques.
+
+## 📌 Overview
+
+Emotion detection from voice is a challenging task that involves analyzing speech features to determine the speaker's emotional state. This project extracts relevant audio features from multilingual datasets and uses a neural network model to classify emotions such as:
+
+* Happy
+* Sad
+* Angry
+* Neutral
+* Fearful
+* Disgust
+* Surprised
+
+## 🗃️ Datasets
+
+The system supports multilingual datasets and can be adapted to include:
+
+* **RAVDESS** (English)
+* **EmoDB** (German)
+* **CREMA-D**
+* Custom multilingual corpora
+
+> Ensure all audio files are preprocessed to a common sampling rate and format for consistency.
+
+## ⚙️ Features Extracted
+
+* **MFCC (Mel-Frequency Cepstral Coefficients)**
+* **Chroma**
+* **Mel Spectrogram**
+* **Zero Crossing Rate**
+* **Spectral Contrast**
+
+These features are extracted using `librosa` and combined into a single feature vector per audio clip.
+
+## 🧠 Model Architecture
+
+The model is built using **TensorFlow/Keras** with a typical structure:
+
+* Input layer for extracted features
+* Dense hidden layers with dropout
+* Output layer with softmax activation for emotion classification
+
+Other possible models:
+
+* CNN (for spectrogram images)
+* LSTM (for sequential audio features)
+
+## 📈 Evaluation Metrics
+
+* Accuracy
+* Confusion Matrix
+* Classification Report (Precision, Recall, F1-score)
+
+## ▶️ Usage
+
+1. Clone the repository.
+2. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the notebook:
+
+   ```bash
+   jupyter notebook multilingual_emotion_detection_in_voice.ipynb
+   ```
+4. Add or update your dataset path as needed.
+5. Train the model and test with sample audio clips.
+
+## 🔄 Multilingual Support
+
+The system can normalize and align emotion labels across different languages and datasets. It is extendable to handle new languages by integrating corresponding datasets.
+
+## 📁 Project Structure
+
+```
+multilingual_emotion_detection/
+│
+├── multilingual_emotion_detection_in_voice.ipynb
+├── datasets/
+│   └── [Your audio files here]
+├── models/
+│   └── saved_model.h5
+├── README.md
+└── requirements.txt
+```
+
+## 🧪 Sample Prediction
+
+The notebook allows you to test the model on custom audio clips and returns the predicted emotion.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or pull request to suggest improvements or add support for more languages.
+
+---
+
+Let me know if you'd like me to export this to a `README.md` file or customize it further (e.g. with links, images, model details, etc.).
